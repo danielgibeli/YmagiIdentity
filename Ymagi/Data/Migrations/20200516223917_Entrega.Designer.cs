@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ymagi.Data;
 
 namespace Ymagi.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200516223917_Entrega")]
+    partial class Entrega
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,7 +194,7 @@ namespace Ymagi.Data.Migrations
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<int>("MembroId");
+                    b.Property<int?>("MembroId");
 
                     b.Property<int>("ProdutoId");
 
@@ -395,9 +397,9 @@ namespace Ymagi.Data.Migrations
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<int>("FornecedorId");
+                    b.Property<int?>("FornecedorId");
 
-                    b.Property<int>("MembroId");
+                    b.Property<int?>("MembroId");
 
                     b.Property<int>("ProdutoId");
 
@@ -522,8 +524,7 @@ namespace Ymagi.Data.Migrations
                 {
                     b.HasOne("Ymagi.Models.Membro", "Membro")
                         .WithMany("Entregas")
-                        .HasForeignKey("MembroId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("MembroId");
 
                     b.HasOne("Ymagi.Models.Produto", "Produto")
                         .WithMany("Entregas")
@@ -574,13 +575,11 @@ namespace Ymagi.Data.Migrations
                 {
                     b.HasOne("Ymagi.Models.Fornecedor", "Fornecedor")
                         .WithMany("Recebimentos")
-                        .HasForeignKey("FornecedorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("FornecedorId");
 
                     b.HasOne("Ymagi.Models.Membro", "Membro")
                         .WithMany("Recebimentos")
-                        .HasForeignKey("MembroId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("MembroId");
 
                     b.HasOne("Ymagi.Models.Produto", "Produto")
                         .WithMany("Recebimentos")
