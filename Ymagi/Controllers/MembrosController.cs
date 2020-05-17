@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -48,7 +46,7 @@ namespace Ymagi.Controllers
         // GET: Membros/Create
         public IActionResult Create()
         {
-            ViewData["OscId"] = new SelectList(_context.Osc, "Id", "Id");
+            ViewData["OscId"] = new SelectList(_context.Osc, "Id", "Nome");
             return View();
         }
 
@@ -57,7 +55,8 @@ namespace Ymagi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Rg,Telefone,Email,Nascimento,Sexo,EstadoCivil,Filhos,DataCadastro,Cep,Endereco,Numero,Complemento,Bairro,Cidade,Estado,OscId")] Membro membro)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Rg,Telefone,Email,Nascimento,Sexo,EstadoCivil,Filhos," +
+            "DataCadastro,Cep,Endereco,Numero,Complemento,Bairro,Cidade,Estado,OscId")] Membro membro)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +64,7 @@ namespace Ymagi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OscId"] = new SelectList(_context.Osc, "Id", "Id", membro.OscId);
+            ViewData["OscId"] = new SelectList(_context.Osc, "Id", "Nome", membro.OscId);
             return View(membro);
         }
 
@@ -82,7 +81,7 @@ namespace Ymagi.Controllers
             {
                 return NotFound();
             }
-            ViewData["OscId"] = new SelectList(_context.Osc, "Id", "Id", membro.OscId);
+            ViewData["OscId"] = new SelectList(_context.Osc, "Id", "Nome", membro.OscId);
             return View(membro);
         }
 
@@ -91,7 +90,8 @@ namespace Ymagi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Rg,Telefone,Email,Nascimento,Sexo,EstadoCivil,Filhos,DataCadastro,Cep,Endereco,Numero,Complemento,Bairro,Cidade,Estado,OscId")] Membro membro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Rg,Telefone,Email,Nascimento,Sexo,EstadoCivil,Filhos," +
+            "DataCadastro,Cep,Endereco,Numero,Complemento,Bairro,Cidade,Estado,OscId")] Membro membro)
         {
             if (id != membro.Id)
             {
@@ -118,7 +118,7 @@ namespace Ymagi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OscId"] = new SelectList(_context.Osc, "Id", "Id", membro.OscId);
+            ViewData["OscId"] = new SelectList(_context.Osc, "Id", "Nome", membro.OscId);
             return View(membro);
         }
 

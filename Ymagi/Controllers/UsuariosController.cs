@@ -48,7 +48,7 @@ namespace Ymagi.Controllers
         // GET: Usuarios/Create
         public IActionResult Create()
         {
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id");
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome");
             return View();
         }
 
@@ -57,7 +57,8 @@ namespace Ymagi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Rg,Telefone,Email,Nascimento,Sexo,EstadoCivil,Filhos,DataCadastro,Cep,Endereco,Numero,Complemento,Bairro,Cidade,Estado,MembroId")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Rg,Telefone,Email,Nascimento,Sexo,EstadoCivil,Filhos," +
+            "DataCadastro,Cep,Endereco,Numero,Complemento,Bairro,Cidade,Estado,MembroId")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +66,7 @@ namespace Ymagi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", usuario.MembroId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", usuario.MembroId);
             return View(usuario);
         }
 
@@ -82,7 +83,7 @@ namespace Ymagi.Controllers
             {
                 return NotFound();
             }
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", usuario.MembroId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", usuario.MembroId);
             return View(usuario);
         }
 
@@ -91,7 +92,8 @@ namespace Ymagi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Rg,Telefone,Email,Nascimento,Sexo,EstadoCivil,Filhos,DataCadastro,Cep,Endereco,Numero,Complemento,Bairro,Cidade,Estado,MembroId")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Rg,Telefone,Email,Nascimento,Sexo,EstadoCivil,Filhos," +
+            "DataCadastro,Cep,Endereco,Numero,Complemento,Bairro,Cidade,Estado,MembroId")] Usuario usuario)
         {
             if (id != usuario.Id)
             {
@@ -118,7 +120,7 @@ namespace Ymagi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", usuario.MembroId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", usuario.MembroId);
             return View(usuario);
         }
 

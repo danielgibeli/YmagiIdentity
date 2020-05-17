@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -50,9 +48,9 @@ namespace Ymagi.Controllers
         // GET: Produtos/Create
         public IActionResult Create()
         {
-            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Id");
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id");
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id");
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Nome");
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome");
             return View();
         }
 
@@ -69,9 +67,9 @@ namespace Ymagi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Id", produto.FornecedorId);
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", produto.MembroId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", produto.UsuarioId);
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Nome", produto.FornecedorId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", produto.MembroId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 
@@ -88,9 +86,9 @@ namespace Ymagi.Controllers
             {
                 return NotFound();
             }
-            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Id", produto.FornecedorId);
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", produto.MembroId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", produto.UsuarioId);
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Nome", produto.FornecedorId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", produto.MembroId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 
@@ -126,9 +124,9 @@ namespace Ymagi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Id", produto.FornecedorId);
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", produto.MembroId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", produto.UsuarioId);
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Nome", produto.FornecedorId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", produto.MembroId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -51,10 +49,10 @@ namespace Ymagi.Controllers
         // GET: Recebimentos/Create
         public IActionResult Create()
         {
-            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Id");
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id");
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Id");
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id");
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Nome");
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome");
             return View();
         }
 
@@ -71,10 +69,10 @@ namespace Ymagi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Id", recebimento.FornecedorId);
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", recebimento.MembroId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Id", recebimento.ProdutoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", recebimento.UsuarioId);
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Nome", recebimento.FornecedorId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", recebimento.MembroId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome", recebimento.ProdutoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome", recebimento.UsuarioId);
             return View(recebimento);
         }
 
@@ -91,10 +89,10 @@ namespace Ymagi.Controllers
             {
                 return NotFound();
             }
-            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Id", recebimento.FornecedorId);
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", recebimento.MembroId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Id", recebimento.ProdutoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", recebimento.UsuarioId);
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Nome", recebimento.FornecedorId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", recebimento.MembroId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome", recebimento.ProdutoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome", recebimento.UsuarioId);
             return View(recebimento);
         }
 
@@ -130,10 +128,10 @@ namespace Ymagi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Id", recebimento.FornecedorId);
-            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Id", recebimento.MembroId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Id", recebimento.ProdutoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", recebimento.UsuarioId);
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedor, "Id", "Nome", recebimento.FornecedorId);
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome", recebimento.MembroId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome", recebimento.ProdutoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome", recebimento.UsuarioId);
             return View(recebimento);
         }
 
