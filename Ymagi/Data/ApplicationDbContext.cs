@@ -21,7 +21,7 @@ namespace Ymagi.Data
         public DbSet<Fornecedor> Fornecedor { get; set; }
         public DbSet<Entrega> Entrega { get; set; }
         public DbSet<Recebimento> Recebimento { get; set; }
-        public DbSet<Ymagi.Models.ViewModels.ProjectRole> ProjectRole { get; set; }
+        public DbSet<ProjectRole> ProjectRole { get; set; }
 
     }
 }

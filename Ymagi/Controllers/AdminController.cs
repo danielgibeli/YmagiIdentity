@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Ymagi.Models.ViewModels;
+using Ymagi.Models;
 
 namespace Ymagi.Controllers
 {
-    [Authorize(Roles = "Admin")]
-        
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ymagi.Models.ViewModels
+namespace Ymagi.Models
 {
     public class ProjectRole
     {
