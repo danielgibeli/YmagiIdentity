@@ -3,8 +3,8 @@ namespace Ymagi.Models.Enums
 {
     public enum Status : int
     {
-        Efetivada = 0,
-        Programada = 1,
-        Cancelada = 2,
+        Efetivada = 1,
+        Programada = 2,
+        Cancelada = 3,
     }
 }

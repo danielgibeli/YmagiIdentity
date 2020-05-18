@@ -54,6 +54,14 @@ namespace Ymagi.Controllers
             return View();
         }
 
+        public IActionResult RegistroEntrega ()
+        {
+            ViewData["MembroId"] = new SelectList(_context.Membro, "Id", "Nome");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nome");
+            return View();
+        }
+
         // POST: Entregas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
