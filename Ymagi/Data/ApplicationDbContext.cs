@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Ymagi.Models;
+using Ymagi.Models.ViewModels;
 
 namespace Ymagi.Data
 {
@@ -20,6 +21,7 @@ namespace Ymagi.Data
         public DbSet<Fornecedor> Fornecedor { get; set; }
         public DbSet<Entrega> Entrega { get; set; }
         public DbSet<Recebimento> Recebimento { get; set; }
+        public DbSet<Ymagi.Models.ViewModels.ProjectRole> ProjectRole { get; set; }
 
     }
 }

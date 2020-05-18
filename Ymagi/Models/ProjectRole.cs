@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Ymagi.Models.ViewModels
 {
-    public class CreateRoleViewModel
+    public class ProjectRole
     {
-        [Required]
-        public int RoleName { get; set; }
+        public int Id { get; set; }
+
+        public string RoleName { get; set; }
     }
 }
