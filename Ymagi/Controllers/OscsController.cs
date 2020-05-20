@@ -11,7 +11,7 @@ using Ymagi.Models;
 
 namespace Ymagi.Controllers
 {
-
+    [Authorize]
     public class OscsController : Controller
     {
         private readonly ApplicationDbContext _context;

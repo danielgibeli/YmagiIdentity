@@ -15,6 +15,11 @@ namespace Ymagi.Controllers
             return View();
         }
 
+        public IActionResult Ymagi()
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

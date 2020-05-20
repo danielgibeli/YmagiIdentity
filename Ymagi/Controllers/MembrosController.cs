@@ -9,7 +9,7 @@ using Ymagi.Models;
 
 namespace Ymagi.Controllers
 {
-
+    [Authorize]
     public class MembrosController : Controller
     {
 

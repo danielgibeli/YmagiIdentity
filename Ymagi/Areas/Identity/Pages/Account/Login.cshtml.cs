@@ -42,9 +42,10 @@ namespace Ymagi.Areas.Identity.Pages.Account
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Lembrar meu login!?")]
             public bool RememberMe { get; set; }
         }
 

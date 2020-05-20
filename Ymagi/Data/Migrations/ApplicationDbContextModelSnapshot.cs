@@ -473,19 +473,6 @@ namespace Ymagi.Data.Migrations
                     b.ToTable("Usuario");
                 });
 
-            modelBuilder.Entity("Ymagi.Models.ViewModels.ProjectRole", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("RoleName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProjectRole");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
